@@ -1,11 +1,14 @@
 #include <stdio.h>
 
-void main(){
+void main()
+{
     printf("hello C-lang!\n");
-    if(1){
+    if (1)
+    {
         printf("good");
-    }else{
+    }
+    else
+    {
         printf("bad");
     }
-    
 }
