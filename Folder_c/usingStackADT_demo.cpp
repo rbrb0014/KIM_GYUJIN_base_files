@@ -60,17 +60,17 @@ void DestroyStack(Stack *pStack)
     free(pStack);
 }
 
-int isFullStack(Stack *pStack){
-
+bool isFullStack(Stack *pStack){
+    return true;
 }
-int isEmptyStack(Stack *pStack){
-
+bool isEmptyStack(Stack *pStack){
+    return true;
 }
 int CountStackItem(Stack *pStack){
-
+    return 0;
 }
-void ClearStack(stack *pStack){
-    
+void ClearStack(Stack *pStack){
+    return;
 }
 
 int main()
@@ -86,7 +86,7 @@ int main()
         Push(pStack, item);
     }
     printf("Reversed :");
-    while(is_Empty(pStack->top))
+    while(pStack->top>=0)
     {
         item = Pop(pStack);
         printf("%d ", item);
