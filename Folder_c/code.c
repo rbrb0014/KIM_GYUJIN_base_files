@@ -1,100 +1,47 @@
 #include <stdio.h>
-#include <stdlib.h>
 #define MAX 503
+#define max(a,b) a>b?a:b
 
-typedef int Element;
+double dp[7][7][7][1001];
 
-typedef struct
-{
-    Element *stack;
-    int size;
-    int top;
-} Stack;
+int max3(int a,int b,int c){
+    return max(max(a,b),c);
+}
+int prize(int i,int j,int k){
+    if(i==j&j==k) return 10000+i*1000;
+    else if(i==j) return 1000+i*100;
+    else if(j==k) return 1000+j*100;
+    else if(k==i) return 1000+k*100;
+    else return max3(i,j,k)*100;
+}
+double dice(int i,int j,int k,int cur,int N){
+    double curPrize = (double)prize(i,j,k);
+    if(cur==N)return curPrize;
 
-Stack *CreateStack(int size)
-{
-    Stack *pStack = (Stack *)malloc(sizeof(Stack));
-    if (pStack == NULL)
-        return NULL;
+    if(dp[i][j][k][cur]) return curPrize;
 
-    pStack->stack = (Element *)malloc(size * sizeof(Element));
-    if (pStack->stack == NULL)
-    {
-        free(pStack);
-        return NULL;
+    double next =0;
+    for(int s=1;s<=6;s++){
+        next+=dice(j,k,s,cur+1,N);
     }
+    dp[i][j][k][cur]=max(next/6,curPrize);
 
-    pStack->size = size;
-    pStack->top = -1;
-
-    return pStack;
+    return max(next/6,curPrize);
 }
+int main(){
+    int N;
+    scanf("%d",&N);
 
-void Push(Stack *pStack, Element item)
-{
-    //check if stack is full
-    if (pStack->top == pStack->size - 1)
-        return;
-    pStack->stack[++pStack->top] = item;
-}
-
-Element Pop(Stack *pStack)
-{
-    // check if stack is empty
-    if (pStack->top < 0)
-        return 0;
-    return pStack->stack[pStack->top--];
-}
-
-Element Top(Stack *pStack)
-{
-    if (pStack->top < 0) // stack is empty
-        return 0;
-    return pStack->stack[pStack->top];
-}
-
-void DestroyStack(Stack *pStack)
-{
-    if (pStack->size > 0)
-        free(pStack->stack); // dealloc memory
-    free(pStack);
-}
-
-int isFullStack(Stack *pStack){
-
-}
-int isEmptyStack(Stack *pStack){
-
-}
-int CountStackItem(Stack *pStack){
-
-}
-void ClearStack(stack *pStack){
-    
-}
-
-int main()
-{
-    int i = 0;
-    int item = 0;
-    Stack *pStack = CreateStack(100);
-    printf("Input 10 numbers :");
-    for (i = 0; i < 10; i++)
-    {
-        item = 0;
-        scanf("%d", &item);
-        Push(pStack, item);
+    double ans=0;
+    int cur=3;
+    for(int i=1;i<=6;i++){
+        for(int j=1;j<=6;j++){
+            for(int k=1;k<=6;k++){
+                ans+=dice(i,j,k,3,N);
+            }
+        }
     }
-    printf("Reversed :");
-    while(is_Empty(pStack->top))
-    {
-        item = Pop(pStack);
-        printf("%d ", item);
-    }
-    printf("\n");
-    DestroyStack(pStack);
-    pStack = NULL;
-    return 0;
+    printf("%lf",ans/(6*6*6));
 }
 
 //ctrl+shift+B  gcc_compile     build

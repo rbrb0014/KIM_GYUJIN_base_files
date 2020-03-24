@@ -1,100 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 #define MAX 503
+#define max(a,b) a>b?a:b
 
-typedef int Element;
-
-typedef struct
-{
-    Element *stack;
-    int size;
-    int top;
-} Stack;
-
-Stack *CreateStack(int size)
-{
-    Stack *pStack = (Stack *)malloc(sizeof(Stack));
-    if (pStack == NULL)
-        return NULL;
-
-    pStack->stack = (Element *)malloc(size * sizeof(Element));
-    if (pStack->stack == NULL)
-    {
-        free(pStack);
-        return NULL;
+int main (){
+    int sum=0;
+    for(int i=1;i<=6;i++){
+        for(int j=1;j<=6;j++){
+            for(int k=1;k<=6;k++){
+                if(i==j&&j==k){
+                    sum+=10000+i*1000;
+                }else if(i==j||j==k||k==i){
+                    if(i==j) 1000+i*100;
+                    else if(j==k) 1000+j*100;
+                    else 1000+k*100;
+                }else{
+                    sum+=max(max(i,j),k)*100;
+                }
+            }
+        }
     }
-
-    pStack->size = size;
-    pStack->top = -1;
-
-    return pStack;
-}
-
-void Push(Stack *pStack, Element item)
-{
-    //check if stack is full
-    if (pStack->top == pStack->size - 1)
-        return;
-    pStack->stack[++pStack->top] = item;
-}
-
-Element Pop(Stack *pStack)
-{
-    // check if stack is empty
-    if (pStack->top < 0)
-        return 0;
-    return pStack->stack[pStack->top--];
-}
-
-Element Top(Stack *pStack)
-{
-    if (pStack->top < 0) // stack is empty
-        return 0;
-    return pStack->stack[pStack->top];
-}
-
-void DestroyStack(Stack *pStack)
-{
-    if (pStack->size > 0)
-        free(pStack->stack); // dealloc memory
-    free(pStack);
-}
-
-bool isFullStack(Stack *pStack){
-    return true;
-}
-bool isEmptyStack(Stack *pStack){
-    return true;
-}
-int CountStackItem(Stack *pStack){
-    return 0;
-}
-void ClearStack(Stack *pStack){
-    return;
-}
-
-int main()
-{
-    int i = 0;
-    int item = 0;
-    Stack *pStack = CreateStack(100);
-    printf("Input 10 numbers :");
-    for (i = 0; i < 10; i++)
-    {
-        item = 0;
-        scanf("%d", &item);
-        Push(pStack, item);
-    }
-    printf("Reversed :");
-    while(pStack->top>=0)
-    {
-        item = Pop(pStack);
-        printf("%d ", item);
-    }
-    printf("\n");
-    DestroyStack(pStack);
-    pStack = NULL;
-    return 0;
+    printf("%d",sum);
 }
 
 //ctrl+shift+B  gcc_compile     build
