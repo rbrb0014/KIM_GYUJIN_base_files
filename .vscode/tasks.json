@@ -48,6 +48,53 @@
             }
         },
         {
+            "label": "iverilog_output",
+            "type": "shell",
+            "command": "iverilog",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args": [
+                "-o",
+                "${fileBasenameNoExtension}.vvp",
+                "${file}"
+            ],
+            "group": "build",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
+        },
+        {
+            "label": "iverilog_VVP",
+            "type": "shell",
+            "command":"vvp",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args":[
+                "${fileBasenameNoExtension}.vvp"
+            ],
+            "group": "test",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
+        },
+        {
+            "label": "iverilog_GTK",
+            "type": "shell",
+            "command":"gtkwave",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args":[
+                "test_output.vcd"
+            ],
+            "group": "test",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
+        },
+        {
             "label": "python execute",
             "type": "shell",
             "command": "python",
