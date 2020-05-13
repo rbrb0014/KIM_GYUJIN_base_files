@@ -1,25 +1,21 @@
 #include <stdio.h>
-#define MAX 503
-#define max(a,b) a>b?a:b
+#include <vector>
+#define INF 1000000
+using namespace std;
+vector<vector<int>> adj;
+
 
 int main (){
-    int sum=0;
-    for(int i=1;i<=6;i++){
-        for(int j=1;j<=6;j++){
-            for(int k=1;k<=6;k++){
-                if(i==j&&j==k){
-                    sum+=10000+i*1000;
-                }else if(i==j||j==k||k==i){
-                    if(i==j) 1000+i*100;
-                    else if(j==k) 1000+j*100;
-                    else 1000+k*100;
-                }else{
-                    sum+=max(max(i,j),k)*100;
-                }
-            }
-        }
+    int n, in1,in2;
+    printf("how many nodes there? : ");
+    scanf("%d", n);
+    adj.resize(n);
+
+    printf("write the edge like n m. if finished, input 0.\n");
+    for(int i=0;i<n;i++){
+        printf("%d",scanf("%d %d",in1,in2));
     }
-    printf("%d",sum);
+
 }
 
 //ctrl+shift+B  gcc_compile     build

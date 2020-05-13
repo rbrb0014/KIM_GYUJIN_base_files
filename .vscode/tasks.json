@@ -31,6 +31,35 @@
             ]
         },
         {
+            "label": "g++ compile",
+            "type": "shell",
+            "command": "g++",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args": [
+                "-g",
+                "-o",
+                "${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
             "label": "c execute",
             "type": "shell",
             "command": ".\\Folder_c/${fileBasenameNoExtension}.exe",

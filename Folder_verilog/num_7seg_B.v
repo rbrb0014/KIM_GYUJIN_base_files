@@ -17,6 +17,7 @@ output out;
 
 wire w,x,y,z,out;
 
-assign out=(~y & ~z)|(x & ~z)|(x & ~y)|w;
+//assign out=(~y & (x|~z))|(x&~z)|w;
+assign out=(x&(y^z))|w|~(y|z);
 
 endmodule
