@@ -60,9 +60,9 @@
             ]
         },
         {
-            "label": "c execute",
+            "label": "exe execute",
             "type": "shell",
-            "command": ".\\Folder_c/${fileBasenameNoExtension}.exe",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "group": {
                 "kind": "test",
                 "isDefault": true
