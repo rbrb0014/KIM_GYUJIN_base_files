@@ -46,6 +46,3 @@ rmse.mat = matrix(c(rmse.train.le,rmse.test.le,
                     rmse.train.sp,rmse.test.sp),nrow=2)
 colnames(rmse.mat) <- c('loess','poly','spline')
 barplot(rmse.mat,beside=TRUE)
-
-
-
