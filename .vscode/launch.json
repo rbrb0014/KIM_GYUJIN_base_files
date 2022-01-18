@@ -5,6 +5,41 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch ModelessDialog",
+            "request": "launch",
+            "mainClass": "JavaGUI.ModelessDialog",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch PanelTest",
+            "request": "launch",
+            "mainClass": "JavaGUI.PanelTest",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch FrameTest",
+            "request": "launch",
+            "mainClass": "JavaGUI.FrameTest",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch FrameTest1",
+            "request": "launch",
+            "mainClass": "JavaGUI.FrameTest1",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
             "name": "Launch_python",
             "type": "python",
             "request": "launch",
@@ -16,26 +51,6 @@
             "type": "java",
             "request": "launch",
             "mainClass": "${fileBasenameNoExtension}"
-        },
-        {
-            "name": "(gdb) Launch_c",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
         },
         {
             "name": "Launch_Go",
