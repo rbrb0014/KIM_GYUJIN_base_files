@@ -60,6 +60,29 @@
             ]
         },
         {
+            "label": "go build",
+            "type":"shell",
+            "command":"go",
+            "options":{
+                "cwd":"${fileDirname}"
+            },
+            "args":[
+
+            ],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },//작성 미완료
+        },
+        {
             "label": "exe execute",
             "type": "shell",
             "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",

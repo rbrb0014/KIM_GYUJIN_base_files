@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
+            "type": "java",
+            "name": "Launch FrameTest",
+            "request": "launch",
+            "mainClass": "JavaGUI.FrameTest",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",
@@ -15,9 +36,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${fileDirname}",
-            "env": {},
-            "args": []
+            "program": "${fileDirname}"
         }
     ]
 }
