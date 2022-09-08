@@ -1,5 +1,5 @@
 $date
-	Tue Apr 21 16:42:48 2020
+	Wed Sep 07 14:10:52 2022
 $end
 $version
 	Icarus Verilog
@@ -21,15 +21,26 @@ $var wire 2 ' s_out [1:0] $end
 $var wire 1 & x_in $end
 $var wire 1 ! y $end
 $var wire 2 ( n_out [1:0] $end
-$var reg 2 ) next_state [1:0] $end
-$var reg 2 * state [1:0] $end
+$var parameter 2 ) S0 $end
+$var parameter 2 * S1 $end
+$var parameter 2 + S2 $end
+$var parameter 2 , S3 $end
+$var reg 2 - next_state [1:0] $end
+$var reg 2 . state [1:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 ,
+b10 +
+b1 *
+b0 )
+$end
 #0
 $dumpvars
-b0 *
-b0 )
+b0 .
+b0 -
 b0 (
 b0 '
 0&
@@ -46,27 +57,27 @@ $end
 #12
 b1 "
 b1 (
-b1 )
+b1 -
 1&
 #15
 0$
 #20
 b10 "
 b10 (
-b10 )
+b10 -
 b1 #
 b1 '
-b1 *
+b1 .
 1$
 #25
 0$
 #30
 b11 "
 b11 (
-b11 )
+b11 -
 b10 #
 b10 '
-b10 *
+b10 .
 1$
 #35
 0$
@@ -74,12 +85,12 @@ b10 *
 1!
 b11 #
 b11 '
-b11 *
+b11 .
 1$
 #42
 b0 "
 b0 (
-b0 )
+b0 -
 0&
 #45
 0$
@@ -87,7 +98,7 @@ b0 )
 0!
 b0 #
 b0 '
-b0 *
+b0 .
 1$
 #55
 0$
@@ -100,38 +111,38 @@ b0 *
 #72
 b1 "
 b1 (
-b1 )
+b1 -
 1&
 #75
 0$
 #80
 b10 "
 b10 (
-b10 )
+b10 -
 b1 #
 b1 '
-b1 *
+b1 .
 1$
 #85
 0$
 #102
 b0 "
 b0 (
-b0 )
+b0 -
 0&
 #132
 b10 "
 b10 (
-b10 )
+b10 -
 1&
 #162
 b0 "
 b0 (
-b0 )
+b0 -
 0&
 #192
 b10 "
 b10 (
-b10 )
+b10 -
 1&
 #200
