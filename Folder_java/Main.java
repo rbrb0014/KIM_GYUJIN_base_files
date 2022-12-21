@@ -7,6 +7,8 @@ public class Main {
     static int MOD = 1000000007;
 
     public static void main(String[] args) throws Exception {
+        System.out.println("hwllo world");
+
         st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int R = Integer.parseInt(st.nextToken());

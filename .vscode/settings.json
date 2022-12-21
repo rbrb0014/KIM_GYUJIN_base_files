@@ -1,0 +1,11 @@
+{
+    "ocaml.sandbox": {
+        "kind": "global"
+    },
+    "files.associations": {
+        "cstdlib": "c",
+        "memory": "c",
+        "malloc.h": "c",
+        "MALLOC.H": "cpp"
+    }
+}

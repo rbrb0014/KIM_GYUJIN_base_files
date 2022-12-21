@@ -6,30 +6,24 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
-        },
-        {
-            "type": "java",
-            "name": "Launch test",
-            "request": "launch",
-            "mainClass": "test",
-            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
-        },
-        {
-            "type": "java",
             "name": "Launch FrameTest",
             "request": "launch",
             "mainClass": "JavaGUI.FrameTest",
-            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
+            "projectName": "KIM_GYUJIN_base_files_48d0e8e9"
         },
         {
-            "name": "Java",
             "type": "java",
+            "name": "Launch Main",
             "request": "launch",
-            "mainClass": "${fileBasenameNoExtension}"
+            "mainClass": "Main",
+            "projectName": "KIM_GYUJIN_base_files_48d0e8e9"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current file",
+            "request": "launch",
+            "mainClass": "{file}",
+            "projectName": "KIM_GYUJIN_base_files_cd894a2f"
         },
         {
             "name": "Go",
