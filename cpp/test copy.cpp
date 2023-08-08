@@ -6,11 +6,17 @@ int dp[4][4];
 
 int main()
 {
-    for (int i = 0; i < 4; i++)
-        dp[0][i] = i + 1;
+    int input[32],output[32];
 
-    for (int i = 1; i < 4; i++)
-    {
+    int i,j, tmp;
+    for(i = 0; i < 32; i++){
+        for(j = 0; j < 32 - i - 1; j++){
+            if(output[j] > output[j+1]){    // swap
+                tmp = output[j];
+                output[j] = output[j+1];
+                output[j+1] = tmp;
+            }
+        }
     }
 }
 

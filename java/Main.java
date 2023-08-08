@@ -1,45 +1,39 @@
-import java.io.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static StringTokenizer st;
-    static int MOD = 1000000007;
-
     public static void main(String[] args) throws Exception {
-        System.out.println("hwllo world");
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            int N = sc.nextInt();
+            int[] building = new int[1000];
+            int[] jomang = new int[1000];
 
-        st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int R = Integer.parseInt(st.nextToken());
-        System.out.println(nCr(N, R, MOD));
-    }
+            for (int j = 0; j < N; j++)
+                building[j] = sc.nextInt();
 
-    private static long nCr(int n, int r, int p) {
-        if (r == 0)
-            return 1L;
+            for (int j = 2; j < N - 2; j++) {
+                // 각 건물마다 양쪽 옆을 비교함
+                int L2 = building[j] - building[j - 2];
+                int L1 = building[j] - building[j - 1];
+                int R1 = building[j] - building[j + 1];
+                int R2 = building[j] - building[j + 2];
 
-        long[] fac = new long[n + 1];
-        fac[0] = 1;
+                // 0이 되면 바로 끝내고 넘어감
+                if (L2 <= 0 || L1 <= 0 || R1 <= 0 || R2 <= 0) {
+                    jomang[j] = 0;
+                    continue;
+                }
 
-        for (int i = 1; i <= n; i++)
-            fac[i] = fac[i - 1] * i % p;
+                // 왼쪽끝부터 봐서 위에서 몇개 층이 조망 가능한지 적어둠
+                jomang[j] = Math.min(Math.min(L2, L1), Math.min(R1, R2));
+                // 비교하면서 점점 줄어들면 그만큼 빼줌
+            }
 
-        return (fac[n] * power(fac[r], p - 2, p)
-                % p * power(fac[n - r], p - 2, p) % p) % p;
-
-    }
-
-    private static long power(long x, long y, long p) { // 제곱수 구하기, 분할 정복
-        long res = 1L;
-        x = x % p;
-        // => 3^7 > 7 3 1
-        while (y > 0) {
-            if (y % 2 == 1)
-                res = (res * x) % p;
-            y = y >> 1;
-            x = (x * x) % p;
+            int sum = Arrays.stream(jomang).sum();
+            System.out.print("#" + (i + 1) + " ");
+            System.out.println(sum);
         }
-        return res;
+        sc.close();
     }
 }
